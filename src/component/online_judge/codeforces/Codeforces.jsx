@@ -52,11 +52,11 @@ export default class Codeforces extends React.Component {
 
 
                             <div class="card shdow">
-                                <img class="card-img-top" src={person.titlePhoto} alt="Card image" style={ { height: 40, width: 40 } }/>
+                                <img class="card-img-top m-3" src={person.titlePhoto} alt="Card image" style={ { height: 50, width: 50 } }/>
                                 <div class="card-body">
                                     <h4 class="card-title">{person.firstName}</h4>
                                     <p class="card-text">{person.country}</p>
-                                    <a href="#" class="btn btn-primary">See Profile</a>
+                                    <a href="#" class="btn btn-dark">See Profile</a>
                                 </div>
                             </div>
                         </div>
