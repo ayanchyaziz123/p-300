@@ -6,15 +6,18 @@ import { Link, NavLink } from "react-router-dom";
 export default class Codeforces extends React.Component {
     state = {
         persons: [],
-        bangladesh: []
+        bangladesh: [],
+        isLoaded: false,
     }
 
     componentDidMount() {
         axios.get(`https://codeforces.com/api/user.ratedList?activeOnly=true`)
             .then(res => {
-                console.log("api is connected = ", res.data.result)
-                const persons = res.data.result;
-                this.setState({ persons });
+                const person = res.data.result;
+                this.setState({
+                    isLoaded: true,
+                    persons: person
+                });
             })
     }
 
@@ -47,21 +50,27 @@ export default class Codeforces extends React.Component {
                     <div className="col-8 mt-5">
 
 
+                      
+                        {this.state.persons.map(person => 
 
-                        {this.state.persons.map(person => <div>
-
+{if(person.country =="Bangladesh" && person.city =="Sylhet" && person.organization =="Metropolitan University") 
+return(
+                       
+                        <div>
+                        
 
                             <div class="card shdow">
                                 <img class="card-img-top m-3" src={person.titlePhoto} alt="Card image" style={ { height: 50, width: 50 } }/>
                                 <div class="card-body">
                                     <h4 class="card-title">{person.firstName}</h4>
                                     <p class="card-text">{person.country}</p>
+                                    <p class="card-text">{person.organization}</p>
                                     <a href="#" class="btn btn-dark">See Profile</a>
                                 </div>
                             </div>
                         </div>
 
-                        )}
+                         )} )}
 
                     </div>
                 </div>
@@ -69,7 +78,6 @@ export default class Codeforces extends React.Component {
 
             <Footer />
         </>);
-
-
     }
+
 }

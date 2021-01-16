@@ -13,7 +13,7 @@ export default class Navbar extends React.Component{
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
+          <li class="nav-item">
           <NavLink className="navbar-brand" exact to="/">
           Home
         </NavLink>

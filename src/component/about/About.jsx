@@ -7,7 +7,11 @@ export default class About extends React.Component{
         return(
             <>
             <Navbar/>
-            <div mt-5>This is About</div>
+            <div className="container">
+
+           
+            <div className="mt-5">This is About</div>
+            </div>
             <Footer/>
             </>
         )
